@@ -53,13 +53,8 @@ class AddTodo extends Component {
                         <li className='todoDiv' key={i}  >
                             <button onClick={() => { this.props.handleComplete(i); }}> {(el.isComplete) ? 'Undo' : 'Complete'} </button>
                             <button onClick={() => { this.props.handleDelete(i); }}> Delete </button>
-                            {console.log('el.onedit : ',this.state.onEdit)}
-                            <p className={!this.state.onEdit ? 'todoNotEditing' : 'todoIsEditing'} style={{ textDecoration: el.isComplete && 'line-through' }}>{el.todo} </p>
-                            <input className={this.state.onEdit ? 'displayEditInput' : 'hideEditInput'}
-                                type='text'
-                                value={this.state.editTodo}
-                                onChange={(e) => this.handleChangeEdit(e)}
-                                placeholder={el.todo} />
+                            {this.state.onEdit ? (<input type='text' value={this.state.editTodo} onChange={(e) => this.handleChangeEdit(e)} defaultValue={el.todo} />) : (<p style={{ textDecoration: el.isComplete && 'line-through' }}>{el.todo} </p>)
+                            }
                             <button onClick={(e) => { e.preventDefault(); this.props.handleEdit(i, this.state.editTodo); this.handleChangeEditState(e); this.setState({ editTodo: '' }) }} >{(this.state.onEdit ? 'Submit' : 'Edit')}</button>
                         </li>
 

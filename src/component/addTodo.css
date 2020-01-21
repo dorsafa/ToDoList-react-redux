@@ -1,22 +1,4 @@
-.todoNotEditing{
-    display: block;
-}
-.todoIsEditing{
-    display: none;
-}
 
-.displayEditInput{
-    display: block;
-}
-.hideEditInput{
-    display: none;
-}
-
-.todoDiv{
-    display: flex;
-}
-
-/*  */
 
 .todoHead{
     background-color: rgb(70, 150, 229);
